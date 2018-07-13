@@ -1,0 +1,41 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  
+ <ion-content padding>
+    <div *ngIf="isLoggedIn;">
+        <h2>{{displayName}}</h2>
+        
+        <ion-avatar item-left>
+            <img src="{{imageUrl}}">
+       </ion-avatar>
+       <p>{{email}}<br>
+      </div>
+      <br><br>
+      <div *ngIf="isLoggedInFacebook;">
+
+          <ion-avatar item-left>
+              <img src="{{photoFacebook}}">
+            </ion-avatar>
+            <br>
+            <p>{{nombreFacebook}}</p> <br> 
+          <ion-item>
+           
+          </ion-item>
+
+        </div>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

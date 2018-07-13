@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List</ion-title>
+  </ion-navbar>
+  <p>Hola</p>
+</ion-header>
+
+<ion-content>
+
+  
+  <ion-list>
+        <!--
+    <div *ngIf="isLoggedIn">
+          <h1>Welcome:{{displayName}}!</h1>
+          <p>Email: {{email}}<br>
+            Family Name: {{familyName}}<br>
+            Given Name: {{givenName}}<br>
+            User ID: {{userId}}</p>
+            
+          <ion-avatar item-start>
+              <img src="{{imageUrl}}">
+          </ion-avatar>
+           
+          <p><button ion-button (click)="logout()">Logout From Google</button></p>
+    </div>
+    <button>HOLA</button>
+-->
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-icon [name]="item.icon" item-start></ion-icon>
+      {{item.title}}
+      <div class="item-note" item-end>
+        {{item.note}}
+      </div>
+    </button>
+    <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>
+  </ion-list>
+  
+</ion-content>
